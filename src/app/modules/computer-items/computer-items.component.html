@@ -1,0 +1,81 @@
+
+
+
+<div class="row mx-auto" style="width: 90%;margin-top: 1rem;">
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="padding-bottom: 2rem;overflow: auto;">
+  <h4 class="heading-title">All Active Items</h4>
+  <table style="box-shadow: 0 3px 6px rgb(0 0 0 / 16%);" class="mx-auto">
+    <tr style="background-color: #F5F5F5;">
+      <th class="header-heading">Name/Brand</th>
+      <th class="header-heading">Model</th>
+      <th class="header-heading">Type</th>
+      <th class="header-heading"> Price</th>
+      <th class="header-heading">Action</th>
+    </tr>
+
+      <tr *ngFor="let product of activeItems;let i=index;" style="border-bottom: 1px solid #D3D3D3;">
+        <td  *ngIf="product.name" class="data-heading">{{product.name}}</td>
+        <td  *ngIf="product.brand" class="data-heading">{{product.brand}}</td>
+        <td class="data-heading">{{product.model}}</td>
+        <td class="data-heading">{{product.type}}</td>
+        <td class="data-heading">{{product.price}}</td>
+        <td (click)="onDelete(i)" style="cursor: pointer;color: red;" class="data-heading"><i class="fa fa-trash" aria-hidden="true"></i></td>
+
+
+      </tr>
+
+      <tr *ngIf="activeItems.length == 0" style="width: 300px;">
+        <p class="no-items">No active items</p>
+
+      </tr>
+
+  </table>
+
+  <h6 style="padding: 15px;color: #095d59;margin-top: 0.5rem;">Active Items Total Price: {{getTotalPrice(activeItems)}}</h6>
+  <h6 *ngIf="activeItems.length > 0" style="padding: 15px;color: #095d59;">Number of Active Items: </h6>
+    <h6>{{getItemCount(activeItems)}}</h6>
+  <div *ngFor ="let name of groupCount">
+    <p style="padding-left: 20px;">{{getTypeName(name)}}</p>
+
+  </div>
+
+
+
+</div>
+
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="padding-bottom: 2rem;overflow: auto;" >
+  <h4 class="heading-title">All Deleted Items</h4>
+  <table style="box-shadow: 0 3px 6px rgb(0 0 0 / 16%);" class="mx-auto">
+    <tr style="background-color: #F5F5F5;">
+      <th class="header-heading">Name/Brand</th>
+      <th class="header-heading">Model</th>
+      <th class="header-heading">Type</th>
+      <th class="header-heading"> Price</th>
+      <th class="header-heading">Action</th>
+    </tr>
+
+      <tr *ngFor="let product of deletedItems;let i=index;" style="border-bottom: 1px solid #D3D3D3;">
+        <td  *ngIf="product.name" class="data-heading">{{product.name}}</td>
+        <td  *ngIf="product.brand" class="data-heading">{{product.brand}}</td>
+        <td class="data-heading">{{product.model}}</td>
+        <td class="data-heading">{{product.type}}</td>
+        <td class="data-heading">{{product.price}}</td>
+        <td (click)="onRestore(i)"  style="cursor: pointer;color: #0000FF;" class="data-heading"><i class="fa fa-window-restore" aria-hidden="true"></i></td>
+
+
+      </tr>
+
+        <p *ngIf="deletedItems.length == 0" class="no-items">No deleted items</p>
+
+  </table>
+  <h6 *ngIf="deletedItems.length > 0" style="padding: 15px;color: #095d59;margin-top: 0.5rem;">Deleted Items Total Price: {{getTotalPrice(deletedItems)}}</h6>
+  <h6 *ngIf="deletedItems.length > 0" style="padding: 15px;color: #095d59;">Number of Deleted Items: </h6>
+  <h6>{{getItemCount(deletedItems)}}</h6>
+<div *ngFor ="let name of groupCount">
+  <p style="padding-left: 20px;">{{getTypeName(name)}}</p>
+
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,28 @@
+.header-heading{
+  padding: 20px;
+  width: 200px;
+  color: #808080;
+  text-align: center;
+}
+
+.data-heading{
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.heading-title{
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  color: #324aa8;
+}
+
+.no-items{
+  padding: 15px;
+  color: #707070;
+  margin-left: 0.3rem;
+}
+
+
+
+
